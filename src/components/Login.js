@@ -31,7 +31,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -49,13 +48,10 @@ const Login = () => {
           updateProfile(user, {
             displayName: name.current.value,
           })
-            .then(() => {
-              navigate("/browse");
-            })
+            .then(() => {})
             .catch((error) => {
               setErrorMessage(error.message);
             });
-          navigate("/");
         })
         .catch((error) => {
           const errorCode = error.code;
